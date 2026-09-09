@@ -37,10 +37,10 @@ for x in n_case: #para cada n se generan los puntos y se calculan las aproximaci
 fig, ax = plt.subplots(figsize=(8, 4.5))
 plt.subplots_adjust(bottom=0.25)
 ax.axis('off')
-column = [['Valor de N', 'Puntos en Círculo', 'Aproximación', 'Error'], ['Valor de N', 'Aproximación', 'Aproximación de Pi', 'Error'], ['Valor de N', 'r = 1', "r =√2", 'r = 4']]
-titulos = ["Ejercicio 1", "Ejercicio 2", "Ejercicio 3"]
+column = [['Valor de N', 'Puntos en Círculo', 'Aproximación', 'Error'], ['Valor de N', 'Aproximación', 'Aproximación de Pi', 'Error'], ['Valor de N', 'r = 1', "r =√2", 'r = 4'], ['Valor de N', 'error pi r = 1', 'error pi r = √2', 'error pi r = 4']]
+titulos = ["Ejercicio 1", "Ejercicio 2", "Ejercicio 3", "Ejercicio 3 (Errores)"]
 
-data = [[],[],[]]
+data = [[],[],[],[]] #lista que contiene los datos de las diferentes tablas
 for i in range(len(n_case)): #meto los datos en la lista data para poder mostrarlos en las diferentes tablas
     data[0].append([
         n_case[i],                  
@@ -60,6 +60,12 @@ for i in range(len(n_case)): #meto los datos en la lista data para poder mostrar
         piaprox[0][i],
         piaprox[1][i],
         piaprox[2][i]
+    ])
+    data[3].append([
+        n_case[i],
+        abs(piaprox[0][i] - np.pi),
+        abs(piaprox[1][i] - np.pi),
+        abs(piaprox[2][i] - np.pi)
     ])
 
 index = 0 
